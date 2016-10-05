@@ -1,0 +1,65 @@
+{
+  "scripts": {
+    "build": "jspm build ./src/challenge.js ./dist/bundle.js --minify",
+    "setup": "npm install && jspm install",
+    "server": "http-server -c-1 ./"
+  },
+  "jspm": {
+    "name": "challenge",
+    "main": "challenge.js",
+    "directories": {
+      "packages": "jspm/jspm_packages"
+    },
+    "configFiles": {
+      "jspm": "jspm/config.js"
+    },
+    "configFile": "jspm/config.js",
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-plugin-transform-react-jsx": "npm:babel-plugin-transform-react-jsx@^6.8.0",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^2.4.1",
+      "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
+      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.16",
+      "process": "github:jspm/nodelibs-process@^0.2.0-alpha"
+    },
+    "buildConfig": {
+      "transpileES6": true,
+      "minify": true
+    },
+    "overrides": {
+      "npm:babel-core@5.8.38": {
+        "main": "browser.js",
+        "dependencies": {},
+        "jspmNodeConversion": false,
+        "map": {
+          "regenerator/runtime": "babel-runtime/regenerator/runtime"
+        },
+        "meta": {
+          "browser.js": {
+            "exports": "babel",
+            "format": "global"
+          }
+        }
+      },
+      "npm:babel-runtime@5.8.38": {
+        "main": false,
+        "dependencies": {},
+        "optionalDependencies": {
+          "core-js": "^1.2.0"
+        }
+      },
+      "npm:lodash@4.16.3": {
+        "map": {
+          "buffer": "@empty",
+          "process": "@empty"
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "http-server": "^0.9.0",
+    "jspm": "^0.17.0-beta.29"
+  }
+}
